@@ -17,4 +17,29 @@ class PostController extends Controller
         ], 200);
 
     }
+
+    public function new(Request $request)
+    {
+        // $loggedUser = Auth::User();
+        // $manager=Manager::where('user_id', $loggedUser->id)->first();
+
+        $post=new Post();
+        $post->title=$request->title;
+        $post->summary=$request->summary;
+        $post->save();
+
+        return response()->json([
+            'success'=>true,
+            'data' => $this->index()
+        ]);
+    }
+
+    public function deletePost(Request $request, $id){
+        $post = Post::where('id',$id)->delete();
+
+        return response()->json([
+            'success'=>true,
+            'data' => $this->index()
+        ]);
+    }
 }
