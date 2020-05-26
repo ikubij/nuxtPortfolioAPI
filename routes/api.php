@@ -29,6 +29,7 @@ Route::group(['prefix' => 'auth'], function ($router) {
 
 });
 
+Route::get('/auth/user/', 'AuthController@me');
 
 Route::get('/posts', 'PostController@index')->name('all.posts');
 
