@@ -18,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/posts', 'PostController@index')->name('all.posts');
 
 Route::group(['prefix' => 'auth'], function ($router) {
 
@@ -30,8 +29,11 @@ Route::group(['prefix' => 'auth'], function ($router) {
 
 });
 
+
+Route::get('/posts', 'PostController@index')->name('all.posts');
+
 Route::group(['middleware' => 'jwt.auth'], function ($router) {
-    Route::get('/posts', 'PostController@index')->name('posts.home');
+    // Route::get('/posts', 'PostController@index')->name('posts.home');
     Route::post('/create/post', 'PostController@new')->name('create.post');
     Route::post('/delete/post/{id}', 'PostController@deletePost')->name('delete.post');
 });
