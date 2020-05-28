@@ -75,7 +75,7 @@ class AuthController extends Controller
      */
     public function me()
     {
-        return response()->json(auth('api')->user());
+        return response()->json(['user'=>auth('api')->user()]);
     }
 
     /**
@@ -112,7 +112,7 @@ class AuthController extends Controller
     {
         return response()->json([
             'success'=>true,
-            'access_token' => $token,
+            'token' => $token,
             'user' => $this->guard()->user(),
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60
