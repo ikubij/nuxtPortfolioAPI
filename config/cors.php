@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['https://ikubij-portfolio.netlify.app/about/'],
 
     'allowed_origins_patterns' => [],
 
