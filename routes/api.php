@@ -31,12 +31,12 @@ Route::group(['prefix' => 'auth'], function ($router) {
 
 // Route::get('/auth/user/', 'AuthController@me');
 
-// Route::get('/posts', 'PostController@index')->name('all.posts');
+Route::get('/posts', 'PostController@index')->name('all.posts');
 
 Route::group(['middleware' => 'jwt.auth'], function ($router) {
     Route::get('/auth/user/', 'AuthController@me');
     
-    Route::get('/posts', 'PostController@index')->name('posts.home');
+    // Route::get('/posts', 'PostController@index')->name('posts.home');
     Route::post('/create/post', 'PostController@new')->name('create.post');
     Route::post('/delete/post/{id}', 'PostController@deletePost')->name('delete.post');
 });
