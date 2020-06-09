@@ -32,6 +32,7 @@ Route::group(['prefix' => 'auth'], function ($router) {
 // Route::get('/auth/user/', 'AuthController@me');
 
 Route::get('/posts', 'PostController@index')->name('all.posts');
+Route::get('/comments/store', 'CommentController@store')->name('comments.store');
 
 Route::group(['middleware' => 'jwt.auth'], function ($router) {
     Route::get('/auth/user/', 'AuthController@me');

@@ -34,4 +34,14 @@ class NewMessage implements ShouldBroadcast
     {
         return new Channel('home');
     }
+
+      // public function broadcastOn()
+      // {
+      //     return ['home'];
+      // }
+
+      // public function broadcastAs()
+      // {
+      //     return 'my-event';
+      // }
 }
